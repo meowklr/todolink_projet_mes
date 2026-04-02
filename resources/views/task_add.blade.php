@@ -58,14 +58,14 @@
                         
                         <label for="piece_jointe" class="btn">Choisir un fichier</label>
                         <input id="piece_jointe" type="file" class="file_input">
-                        <br><br><br><br><br><br>
+                        <p id="fichier_selectionne" class="file_name_preview">Aucun fichier sélectionné</p>
+                        <br><br><br><br><br>
                         <input  class = "btn" type="submit" value="Ajouter la tache">
                     </div>
                 </div>
             </section>
         </section>
-    </section>
-    
-    
+    </section> 
+    <script src="{{ asset('task_add.js') }}"></script>
 </body>
 </html>

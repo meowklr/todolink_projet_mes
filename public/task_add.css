@@ -75,6 +75,20 @@ textarea{
     display: none;
 }
 
+.file_name_preview{
+    margin: 6px 0 0;
+    color: #4b5563;
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+
+.file_icon{
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
 .collaborateur_present{
     margin-top: 4px;
     background: #ffffff;
