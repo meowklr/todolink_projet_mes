@@ -8,6 +8,7 @@ Route::view('/', 'welcome')->name('home');
 Route::view('/dashboard', 'dashboard')->name('dashboard');
 Route::view('/task-add', 'task_add')->name('task_add');
 
+
 Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
 Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
 

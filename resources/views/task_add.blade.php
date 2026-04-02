@@ -19,7 +19,17 @@
                     <a href="{{ route('task_add') }}">Nouvelle tâche</a>
                 </div>
                 <div class="auth_buttons">
-                    <button class="btn btn--solid">Se connecter</button>
+                    @guest
+                        <a href="{{ route('login') }}" class="btn btn--solid">Se connecter</a>
+                        <a href="{{ route('register') }}" class="btn btn--solid">Creer un compte</a>
+                    @endguest
+
+                    @auth
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="btn btn--solid">Se deconnecter</button>
+                        </form>
+                    @endauth
                 </div>
             </div>
             <section class="content">
