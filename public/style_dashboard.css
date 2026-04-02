@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url(img/Fond_TODOLINK.png);
+    background-image: url('/images/Fond_TODOLINK.png');
     background-size: cover;
     background-position: center;
     font-family: nunito, sans-serif;
