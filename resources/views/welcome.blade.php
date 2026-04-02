@@ -17,14 +17,14 @@
                     <a href="{{ route('task_add') }}">Nouvelle tâche</a>
                 </div>
                 <div class="auth_buttons">
-                    <button class="btn">Se connecter</button>
+                    <button class="btn btn--solid">Se connecter</button>
                 </div>
             </div>
             <section class="content">
                 <a class="app_logo"><img src="{{ asset('images/Logo_app_TODOLINK.png') }}" alt="Logo de l'application"></a>
                 <h1>Bienvenue sur ToDoLink</h1>
                 <p>Votre logiciel de gestion de tâches en ligne.</p>
-                <a href="{{ route('dashboard') }}" class="main_btn">Commencer</a>
+                <a href="{{ route('dashboard') }}" class="btn btn--text main_btn">Commencer</a>
             </section>
         </section>
     </section>

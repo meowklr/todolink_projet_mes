@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="{{ asset('style_dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
 </head>
 <body>
-    <div class="navbar">
+    <section class="page">
+        <section class="main_container">
+            <div class="navbar">
                 <a href="{{ route('home') }}" class="nav_logo"><img src="{{ asset('images/Logo_TODOLINK.png') }}" alt="Logo ToDoLink"></a>
                 <div class="navbar_elements">
                     <a href="{{ route('home') }}">Accueil</a>
@@ -15,51 +17,43 @@
                     <a href="{{ route('task_add') }}">Nouvelle tâche</a>
                 </div>
                 <div class="auth_buttons">
-                    <button class="btn">Se connecter</button>
+                    <button class="btn btn--solid">Se connecter</button>
                 </div>
             </div>
-    <section class="dashboard">
-        <section class="content">
-            <br>
-            <h2>Votre programme</h2>
-            <br>
-            <br>
-            <br>
-            <section class="Tasks">
-                <div class="Task">
-                    <div class="colonne-gauche">
-                        <h3>Tâche 1</h3>
-                        <p>Description: Terminer le rapport mensuel</p>
-                        <p>Date: 15/03/2023</p>
+            <section class="content dashboard_content">
+                <h1>Votre programme</h1>
+                <p>Suivez vos tâches en cours et mettez à jour leur état.</p>
+
+                <section class="Tasks">
+                    <div class="Task">
+                        <div class="colonne-gauche">
+                            <h3>Tâche 1</h3>
+                            <p>Description: Terminer le rapport mensuel</p>
+                            <p>Date: 15/03/2023</p>
+                        </div>
+                        <div class="colonne-droite">
+                            <p>Collaborateurs: John, Jane</p>
+                        </div>
+                        <input type="checkbox" id="task1">
+                        <label for="task1">Fait</label>
                     </div>
-                    <div class="colonne-droite">
-                        <p>Collaborateurs: John, Jane</p>
-                        <br>
+
+                    <div class="Task">
+                        <div class="colonne-gauche">
+                            <h3>Tâche 2</h3>
+                            <p>Description: Préparer la présentation</p>
+                            <p>Date: 20/03/2023</p>
+                        </div>
+                        <div class="colonne-droite">
+                            <p>Collaborateurs: Alice, Bob</p>
+                        </div>
+                        <input type="checkbox" id="task2">
+                        <label for="task2">Fait</label>
                     </div>
-                    <input type="checkbox" id="task1">
-                    <label for="task1">Fait</label>
-                    <br>
-                </div>
-                <div class="Task">
-                    <div class="colonne-gauche">
-                        <h3>Tâche 2</h3>
-                        <p>Description: Préparer la présentation</p>
-                        <p>Date: 20/03/2023</p>
-                    </div>
-                    <div class="colonne-droite">
-                        <p>Collaborateurs: Alice, Bob</p>
-                        <br>
-                    </div>
-                    <input type="checkbox" id="task2">
-                    <label for="task2">Fait</label>
-                    <br>
-                </div>
+                </section>
+
+                <a href="{{ route('task_add') }}" class="btn btn--text main_btn">Nouvelle tâche</a>
             </section>
-            <br>
-            <br>
-            <br>
-            <br>
-            <button class="btn">Modifier une tâche</button>
         </section>
     </section>
 </body>
