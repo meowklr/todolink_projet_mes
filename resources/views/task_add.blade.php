@@ -23,10 +23,14 @@
 
         <div class="partie_gauche colonne">
             <label for="collaborateurs">Collaborateurs</label>
-            <button class="collaborateur">Voir les Collaborateurs</button>
+            <button class="collaborateur">Ajouter les Collaborateurs</button>
+            <div class="collaborateur_present">
+                <p>kjsfjfs</p>
+            </div>
 
             <label for="piece_jointe">Ajouter fichier</label>
-            <input id="piece_jointe" type="file">
+            <label for="piece_jointe" class="file_button">Choisir un fichier</label>
+            <input id="piece_jointe" type="file" class="file_input">
 
             <input type="submit" value="Ajouter la tache">
         </div>
