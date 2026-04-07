@@ -106,3 +106,76 @@ textarea{
     color: #23262d;
     font-weight: 500;
 }
+
+.dropdown {
+    width: 100%;
+    position: relative;
+}
+.dropdown #dropdownBtn {
+    width: 100%;
+    display: flex;
+}
+
+.dropdown-list {
+    list-style: none;
+    margin: 8px 0 0 0;
+    padding: 0;
+    background: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 20px;
+    overflow: hidden;
+    display: none;
+    max-height: 220px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.dropdown-list.active {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 18px;
+    text-align: center;
+    font-size: 20px;
+    border-bottom: 1px solid #e5e5e5;
+    cursor: pointer;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background: #f0f0f0;
+}
+
+.boxCollaborateur {
+  margin-top: 8px;
+  padding: 8px;
+  background: #f8f9fa;
+  border: 1px solid #d8dce3;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  min-height: 30px;
+}
+
+.selected-collab-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 4px 0;
+}
+
+.remove-collab {
+    border: none;
+    background: #d66363c1;
+    color: #ffffff;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 700;
+    line-height: 1;
+}

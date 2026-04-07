@@ -35,7 +35,7 @@
             </div>
             <section class="content">
                 <div class="task_add">
-                    <div class="partie_droite colonne">
+                    <div class="partie_gauche colonne">
                         <label for="nom_tache">Nom de la tache</label>
                         <input id="nom_tache" type="text" placeholder="Nom de la tache">
 
@@ -48,20 +48,28 @@
 
                     <div class="barre"></div>
 
-                    <div class="partie_gauche colonne">
-                        <label for="collaborateurs"  >Collaborateurs</label>
-                        <button class="collaborateur btn">Ajouter les Collaborateurs</button>
-                        <div class="collaborateur_present">
-                            <p>Timéo</p>
-                            <p>Nathan</p>
-                            <p>Mathieu</p>
+                    <div class="partie_droite colonne">
+                        <label for="collaborateurs">Collaborateurs</label>
+                        <div class="dropdown">
+                            <button class="dropdownBtn btn" id="dropdownBtn">Sélectionner un collaborateur</button>
+                            <ul class="dropdown-list" id ="dropdownList">
+                                <li class="dropdown-item">Timéo </li>
+                                <li class="dropdown-item">Nathan </li>
+                                <li class="dropdown-item">Mathieu </li>
+                                <li class="dropdown-item">Romain </li>
+                                <li class="dropdown-item">Paul </li>
+                                <li class="dropdown-item">Maxime </li>
+                            </ul>
                         </div>
+                        
+                        <div class="boxCollaborateur"></div>
+                        
                         
                         <label for="piece_jointe" class="btn">Choisir un fichier</label>
                         <input id="piece_jointe" type="file" class="file_input">
                         <p id="fichier_selectionne" class="file_name_preview">Aucun fichier sélectionné</p>
-                        <br><br><br><br><br>
-                        <input  class = "btn" type="submit" value="Ajouter la tache">
+                        <br><br><br><br><br><br>
+                        <input class = "btn submitbtn" type="submit" value="Ajouter la tache">
                     </div>
                 </div>
             </section>
