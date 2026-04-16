@@ -63,12 +63,9 @@
                         <div class="dropdown">
                             <button type="button" class="dropdownBtn btn" id="dropdownBtn">Sélectionner un collaborateur</button>
                             <ul class="dropdown-list" id ="dropdownList">
-                                <li class="dropdown-item">Timéo </li>
-                                <li class="dropdown-item">Nathan </li>
-                                <li class="dropdown-item">Mathieu </li>
-                                <li class="dropdown-item">Romain </li>
-                                <li class="dropdown-item">Paul </li>
-                                <li class="dropdown-item">Maxime </li>
+                                @foreach ($collaborateurs as $collaborateur)
+                                    <li class="dropdown-item">{{ $collaborateur->name }}</li>
+                                @endforeach
                             </ul>
                         </div>
                         

@@ -6,7 +6,7 @@ use App\Http\Controllers\TaskController;
 
 Route::view('/', 'welcome')->name('home');
 Route::get('/dashboard', [TaskController::class, 'index'])->name('dashboard');
-Route::view('/task-add', 'task_add')->name('task_add');
+Route::get('/task-add', [TaskController::class, 'create'])->name('task_add');
 
 
 Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
