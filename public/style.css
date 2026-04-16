@@ -1,4 +1,5 @@
 /* Setup des effets, couleurs et tailles */
+:root {
     --text-color: #1f2937;
     --surface: rgba(255, 255, 255, 0.9);
     --surface-strong: #ffffff;
