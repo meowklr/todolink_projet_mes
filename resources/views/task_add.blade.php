@@ -20,8 +20,7 @@
                 </div>
                 <div class="auth_buttons">
                     @guest
-                        <a href="{{ route('login') }}" class="btn btn--solid">Se connecter</a>
-                        <a href="{{ route('register') }}" class="btn btn--solid">Creer un compte</a>
+                        <a href="{{ route('register') }}" class="btn btn--solid">Se connecter</a>
                     @endguest
 
                     @auth
