@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 
 Route::view('/', 'welcome')->name('home');
-Route::view('/dashboard', 'dashboard')->name('dashboard');
+Route::get('/dashboard', [TaskController::class, 'index'])->name('dashboard');
 Route::view('/task-add', 'task_add')->name('task_add');
 
 

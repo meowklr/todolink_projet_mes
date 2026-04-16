@@ -29,13 +29,13 @@ class TaskController extends Controller
             'task_date' => $request->task_date,
         ]);
 
-        return redirect()->back()->with('success', 'Tache ajoutée.');
+        return redirect()->route('dashboard')->with('success', 'Tache ajoutée.');
     }
 
     //dashboard
     public function index()
     {
         $tasks = Task::orderBy('task_date', 'asc')->get();
-        return view('tasks.index', compact('tasks'));
+        return view('dashboard', compact('tasks'));
     }
 }

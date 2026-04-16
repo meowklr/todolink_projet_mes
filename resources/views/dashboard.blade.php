@@ -35,32 +35,32 @@
                 <h1>Votre programme</h1>
                 <p>Suivez vos tâches en cours et mettez à jour leur état.</p>
 
-                <section class="Tasks">
-                    <div class="Task">
-                        <div class="colonne-gauche">
-                            <h3>Tâche 1</h3>
-                            <p>Description: Terminer le rapport mensuel</p>
-                            <p>Date: 15/03/2023</p>
-                        </div>
-                        <div class="colonne-droite">
-                            <p>Collaborateurs: John, Jane</p>
-                        </div>
-                        <input type="checkbox" id="task1">
-                        <label for="task1">Fait</label>
-                    </div>
+                @if (session('success'))
+                    <p>{{ session('success') }}</p>
+                @endif
 
-                    <div class="Task">
-                        <div class="colonne-gauche">
-                            <h3>Tâche 2</h3>
-                            <p>Description: Préparer la présentation</p>
-                            <p>Date: 20/03/2023</p>
+                <section class="Tasks">
+                    @forelse ($tasks as $task)
+                        <div class="Task">
+                            <div class="colonne-gauche">
+                                <h3>{{ $task->title }}</h3>
+                                <p>Description: {{ $task->description ?: 'Aucune description' }}</p>
+                                <p>Date: {{ \Carbon\Carbon::parse($task->task_date)->format('d/m/Y') }}</p>
+                            </div>
+                            <div class="colonne-droite">
+                                <p>Collaborateur(s): {{ $task->username }}</p>
+                            </div>
+                            <input type="checkbox" id="task{{ $task->id }}">
+                            <label for="task{{ $task->id }}">Fait</label>
                         </div>
-                        <div class="colonne-droite">
-                            <p>Collaborateurs: Alice, Bob</p>
+                    @empty
+                        <div class="Task">
+                            <div class="colonne-gauche">
+                                <h3>Aucune tâche</h3>
+                                <p>Commencez par ajouter une nouvelle tâche.</p>
+                            </div>
                         </div>
-                        <input type="checkbox" id="task2">
-                        <label for="task2">Fait</label>
-                    </div>
+                    @endforelse
                 </section>
 
                 <a href="{{ route('task_add') }}" class="btn btn--text main_btn">Nouvelle tâche</a>
