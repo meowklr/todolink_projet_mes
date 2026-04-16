@@ -6,13 +6,17 @@ const boxCollaborateur = document.querySelector(".boxCollaborateur");
 const usernameInput = document.getElementById("username");
 const selectedCollaborateurs = [];
 
-function updateUsernameField(name) {
+function updateUsernameField() {
+  const joined = selectedCollaborateurs.join(", ");
+
   if (usernameInput) {
-    usernameInput.value = name;
+  usernameInput.value = joined;
   }
 
   if (dropdownBtn) {
-    dropdownBtn.textContent = name || "Sélectionner un collaborateur";
+  dropdownBtn.textContent = selectedCollaborateurs.length
+  ? "Collaborateurs (" + selectedCollaborateurs.length + ")"
+  : "Sélectionner un collaborateur";
   }
 }
 
@@ -40,12 +44,13 @@ dropdownBtn.addEventListener("click", () => {
 
 items.forEach(item => {
   item.addEventListener("click", () => {
-    const name = item.textContent.trim();
+    const name = (item.getAttribute("data-name") || item.textContent).trim();
 
-    // Keep one selected collaborator to match a single username field in the form.
-    selectedCollaborateurs.length = 0;
-    selectedCollaborateurs.push(name);
-    updateUsernameField(name);
+    if (!selectedCollaborateurs.includes(name)) {
+      selectedCollaborateurs.push(name);
+    }
+
+    updateUsernameField();
 
     renderSelectedCollaborateurs();
 
@@ -62,7 +67,7 @@ if (boxCollaborateur) {
     const index = selectedCollaborateurs.indexOf(name);
     if (index > -1) {
       selectedCollaborateurs.splice(index, 1);
-      updateUsernameField("");
+      updateUsernameField();
       renderSelectedCollaborateurs();
     }
   });

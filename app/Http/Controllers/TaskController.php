@@ -6,13 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Models\Task;
+use App\Models\User;
 
 class TaskController extends Controller
 {
     //formulaire d'ajout de tâche
     public function create()
     {
-        return view('task_add');
+    $collaborateurs = User::orderBy('name')->get(['name', 'branche']);
+    return view('task_add', compact('collaborateurs'));
     }
     
     //enregistrement de la tâche
