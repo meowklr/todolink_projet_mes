@@ -44,16 +44,18 @@
                 </div>
             </div>
             <section class="content">
-                <div class="task_add">
+                <form class="task_add" method="POST" action="{{ route('tasks.store') }}">
+                    @csrf
+                    <input type="hidden" name="username" id="username">
                     <div class="partie_gauche colonne">
                         <label for="nom_tache">Nom de la tache</label>
-                        <input id="nom_tache" type="text" placeholder="Nom de la tache">
+                        <input id="nom_tache" name="title" type="text" placeholder="Nom de la tache">
 
                         <label for="descriptif">Description</label>
-                        <textarea id="descriptif" placeholder="Decris la tache..."></textarea>
+                        <textarea id="descriptif" name="description" placeholder="Decris la tache..."></textarea>
 
                         <label for="date_limite">Date limite</label>
-                        <input id="date_limite" type="date">
+                        <input id="date_limite" name="task_date" type="date">
                     </div>
 
                     <div class="barre"></div>
@@ -61,7 +63,7 @@
                     <div class="partie_droite colonne">
                         <label for="collaborateurs">Collaborateurs</label>
                         <div class="dropdown">
-                            <button class="dropdownBtn btn" id="dropdownBtn">Sélectionner un collaborateur</button>
+                            <button type="button" class="dropdownBtn btn" id="dropdownBtn">Sélectionner un collaborateur</button>
                             <ul class="dropdown-list" id ="dropdownList">
                                 <li class="dropdown-item">Timéo </li>
                                 <li class="dropdown-item">Nathan </li>
@@ -81,7 +83,7 @@
                         <br><br><br><br><br><br>
                         <input class = "btn submitbtn" type="submit" value="Ajouter la tache">
                     </div>
-                </div>
+                </form>
             </section>
         </section>
     </section> 
