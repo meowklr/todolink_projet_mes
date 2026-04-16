@@ -1,3 +1,4 @@
+{{-- layout: app --}}
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -16,10 +17,12 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
+        {{-- setup page principale --}}
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
+            {{-- setup navbar --}}
             @include('layouts.navigation')
 
-            <!-- Page Heading -->
+            {{-- setup header --}}
             @isset($header)
                 <header class="bg-white dark:bg-gray-800 shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -28,7 +31,7 @@
                 </header>
             @endisset
 
-            <!-- Page Content -->
+            {{-- setup contenu page --}}
             <main>
                 {{ $slot }}
             </main>

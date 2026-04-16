@@ -1,5 +1,4 @@
 /* Setup des effets, couleurs et tailles */
-:root {
     --text-color: #1f2937;
     --surface: rgba(255, 255, 255, 0.9);
     --surface-strong: #ffffff;
@@ -259,6 +258,8 @@ a:hover {
     outline-offset: 3px;
 }
 
+
+/* setup dashboard */
 .btn,
 .btn--solid {
     background-color: #4c8eaf;
@@ -379,6 +380,8 @@ a:hover {
     overflow: hidden;
 }
 
+
+/* setup ajout de tache */
 .dashboard_content .Task:hover {
     border-color: #bdd1de;
     background-color: #ffffff;
@@ -536,6 +539,8 @@ a:hover {
     list-style: none;
     margin: 8px 0 0;
     padding: 0;
+
+/* vue: auth */
     background: white;
     border: 1px solid #d9d9d9;
     border-radius: 20px;
@@ -601,6 +606,195 @@ a:hover {
     margin-top: auto;
 }
 
+/* vue: auth */
+.auth_page {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: clamp(18px, 4vh, 36px) 2vw;
+}
+
+.auth_main_container {
+    width: min(980px, 100%);
+    height: auto;
+    max-height: none;
+}
+
+.auth_content {
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    overflow: visible;
+    padding: clamp(20px, 3vw, 30px);
+}
+
+.auth_header {
+    width: min(520px, 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth_breadcrumb {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #64748b;
+}
+
+.auth_breadcrumb a {
+    color: #2d6f94;
+    text-decoration: none;
+}
+
+.auth_breadcrumb a:hover {
+    color: #224f69;
+}
+
+.auth_header h1 {
+    margin: 0;
+    color: #0f172a;
+    font-size: clamp(1.55rem, 2.8vw, 2.1rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.auth_header p {
+    margin: 0;
+    max-width: 500px;
+    color: #475569;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+    line-height: 1.45;
+}
+
+.auth_card {
+    width: min(520px, 100%);
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    border-radius: 16px;
+    padding: clamp(18px, 2vw, 24px);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.1);
+    animation: authCardReveal 0.32s ease-out;
+}
+
+.auth_card p,
+.auth_intro {
+    margin: 0 0 10px;
+    font-size: 0.93rem;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: 0.01em;
+    color: #475569;
+}
+
+.auth_label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #1f3341;
+}
+
+.auth_input {
+    width: 100%;
+    border: 1px solid #bfd0db;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #1f2937;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    line-height: 1.3;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.auth_input:focus {
+    outline: none;
+    border-color: #4c8eaf;
+    box-shadow: 0 0 0 3px rgba(76, 142, 175, 0.2);
+}
+
+.auth_error {
+    margin-top: 6px;
+    color: #b42318;
+    font-size: 0.82rem;
+    line-height: 1.35;
+}
+
+.auth_status {
+    margin-bottom: 10px;
+    border: 1px solid rgba(49, 151, 107, 0.4);
+    background: rgba(49, 151, 107, 0.12);
+    color: #206647;
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-size: 0.84rem;
+    font-weight: 600;
+}
+
+.auth_actions {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.auth_link {
+    font-size: 0.85rem;
+    color: #2d6f94;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.auth_link:hover {
+    color: #224f69;
+}
+
+.auth_link--button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+.auth_nav_current {
+    background-color: #355f78;
+    border-color: #355f78;
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.18);
+}
+
+.auth_nav_current:hover {
+    background-color: #355f78;
+    border-color: #355f78;
+    transform: none;
+}
+
+.auth_remember {
+    margin-top: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.auth_checkbox {
+    width: 16px;
+    height: 16px;
+    accent-color: #4c8eaf;
+}
+
+.auth_remember_text {
+    font-size: 0.86rem;
+    color: #475569;
+}
+
 /* Animations */
 @keyframes appLogoFloat {
     0%,
@@ -609,6 +803,17 @@ a:hover {
     }
     50% {
         transform: translateY(-6px);
+    }
+}
+
+@keyframes authCardReveal {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.99);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }
 
@@ -636,6 +841,19 @@ a:hover {
     .content {
         min-height: 0;
         padding: 16px;
+    }
+
+    .auth_card {
+        width: 100%;
+    }
+
+    .auth_header {
+        width: 100%;
+    }
+
+    .auth_actions {
+        align-items: flex-start;
+        flex-direction: column;
     }
 
     .task_add {

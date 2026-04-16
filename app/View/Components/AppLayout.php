@@ -1,5 +1,6 @@
 <?php
 
+// composant layout app
 namespace App\View\Components;
 
 use Illuminate\View\Component;

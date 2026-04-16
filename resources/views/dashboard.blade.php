@@ -1,3 +1,4 @@
+{{-- vue: dashboard --}}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,8 +9,10 @@
     <link rel="stylesheet" href="{{ asset('style.css') }}">
 </head>
 <body>
+    {{-- setup page principale --}}
     <section class="page">
         <section class="main_container">
+            {{-- setup navbar --}}
             <div class="navbar">
                 <a href="{{ route('home') }}" class="nav_logo"><img src="{{ asset('images/Logo_TODOLINK.png') }}" alt="Logo ToDoLink"></a>
                 <div class="navbar_elements">
@@ -40,6 +43,7 @@
                     @endauth
                 </div>
             </div>
+            {{-- setup contenu dashboard --}}
             <section class="content dashboard_content">
                 <h1>Votre programme</h1>
                 <p>Suivez vos tâches en cours et mettez à jour leur état.</p>

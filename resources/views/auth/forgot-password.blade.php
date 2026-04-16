@@ -1,6 +1,6 @@
 <x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+    <div class="auth_intro">
+        {{ __('Mot de passe oublie ? Aucun souci. Indiquez votre adresse email et nous vous enverrons un lien pour reinitialiser votre mot de passe.') }}
     </div>
 
     <!-- Session Status -->
@@ -9,16 +9,16 @@
     <form method="POST" action="{{ route('password.email') }}">
         @csrf
 
-        <!-- Email Address -->
+        <!-- adresse email -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
+        <div class="auth_actions">
             <x-primary-button>
-                {{ __('Email Password Reset Link') }}
+                {{ __('Envoyer le lien de reinitialisation') }}
             </x-primary-button>
         </div>
     </form>

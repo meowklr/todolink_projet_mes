@@ -1,5 +1,6 @@
 <?php
 
+// composant layout guest
 namespace App\View\Components;
 
 use Illuminate\View\Component;

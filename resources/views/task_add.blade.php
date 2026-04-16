@@ -1,3 +1,4 @@
+{{-- vue: ajout de tache --}}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,8 +10,10 @@
 </head>
 <body>
 
-<section class="page">
+    {{-- setup page principale --}}
+    <section class="page">
         <section class="main_container">
+            {{-- setup navbar --}}
             <div class="navbar">
                 <a href="{{ route('home') }}" class="nav_logo"><img src="{{ asset('images/Logo_TODOLINK.png') }}" alt="Logo ToDoLink"></a>
                 <div class="navbar_elements">
@@ -41,6 +44,7 @@
                     @endauth
                 </div>
             </div>
+            {{-- setup contenu ajout tache --}}
             <section class="content">
                 <form class="task_add" method="POST" action="{{ route('tasks.store') }}" enctype="multipart/form-data">
                     @csrf

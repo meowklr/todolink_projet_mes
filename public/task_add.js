@@ -1,4 +1,4 @@
-// Bouton selectioner un collaborateur avec la bare deroulante
+// setup dropdown collaborateurs
 const dropdownBtn = document.getElementById("dropdownBtn");
 const dropdownList = document.getElementById("dropdownList");
 const items = document.querySelectorAll(".dropdown-item");
@@ -6,6 +6,7 @@ const boxCollaborateur = document.querySelector(".boxCollaborateur");
 const usernameInput = document.getElementById("username");
 const selectedCollaborateurs = [];
 
+// setup maj champ username
 function updateUsernameField() {
   const joined = selectedCollaborateurs.join(", ");
 
@@ -16,10 +17,11 @@ function updateUsernameField() {
   if (dropdownBtn) {
   dropdownBtn.textContent = selectedCollaborateurs.length
   ? "Collaborateurs (" + selectedCollaborateurs.length + ")"
-  : "Sélectionner un collaborateur";
+  : "S\u00e9lectionner un collaborateur";
   }
 }
 
+// setup affichage collaborateurs selectionnes
 function renderSelectedCollaborateurs() {
   if (!boxCollaborateur) return;
 
@@ -38,6 +40,7 @@ function renderSelectedCollaborateurs() {
     .join("");
 }
 
+// setup interactions dropdown
 dropdownBtn.addEventListener("click", () => {
   dropdownList.classList.toggle("active");
 });
@@ -58,6 +61,7 @@ items.forEach(item => {
   });
 });
 
+// setup suppression collaborateurs
 if (boxCollaborateur) {
   boxCollaborateur.addEventListener("click", (event) => {
     const removeButton = event.target.closest(".remove-collab");
@@ -73,9 +77,7 @@ if (boxCollaborateur) {
   });
 }
 
-
-
-// Systeme de fichier avec petite icone
+// setup fichier piece jointe
 const inputFichier = document.getElementById('piece_jointe');
 const previewFichier = document.getElementById('fichier_selectionne');
 

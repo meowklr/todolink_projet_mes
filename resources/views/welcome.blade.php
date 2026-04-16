@@ -1,3 +1,4 @@
+{{-- vue: accueil --}}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,8 +9,10 @@
     <link rel="stylesheet" href="{{ asset('style.css') }}">
 </head>
 <body>
+    {{-- setup page principale --}}
     <section class="page">
         <section class="main_container">
+            {{-- setup navbar --}}
             <div class="navbar">
                 <a href="{{ route('home') }}" class="nav_logo"><img src="{{ asset('images/Logo_TODOLINK.png') }}" alt="Logo ToDoLink"></a>
                 <div class="navbar_elements">
@@ -40,6 +43,7 @@
                     @endauth
                 </div>
             </div>
+            {{-- setup contenu accueil --}}
             <section class="content">
                 <a class="app_logo"><img src="{{ asset('images/Logo_app_TODOLINK.png') }}" alt="Logo de l'application"></a>
                 <h1>Bienvenue sur ToDoLink</h1>
