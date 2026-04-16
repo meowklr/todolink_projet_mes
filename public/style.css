@@ -251,7 +251,7 @@ a:hover {
     font-weight: 600;
     cursor: pointer;
     text-decoration: none;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), background-color var(--transition-fast);
+    transition: all 0.2s ease-in-out;
 }
 
 .btn:focus-visible {
@@ -264,16 +264,15 @@ a:hover {
     background-color: #4c8eaf;
     color: #ffffff;
     border-color: #4c8eaf;
-    border-radius: 30px;
+    border-radius: 7px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .btn:hover,
 .btn--solid:hover {
-    background-color: #3b6e8c;
+    background-color: rgba(35, 79, 104, 0.8);
     color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(59, 110, 140, 0.35);
+    box-shadow: 0 8px 16px rgba(59, 110, 140, 0.2);
 }
 
 .btn--text,
@@ -325,7 +324,7 @@ a:hover {
     border-radius: 4px;
 }
 
-/* Vue: Dashboard */
+/* Dashboard */
 .dashboard_content {
     justify-content: flex-start;
     align-items: stretch;
@@ -374,15 +373,13 @@ a:hover {
     width: min(430px, 100%);
     padding: 12px 14px;
     text-align: left;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    transition: all 0.1s ease;
     box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
     position: relative;
     overflow: hidden;
 }
 
 .dashboard_content .Task:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.14);
     border-color: #bdd1de;
     background-color: #ffffff;
 }
