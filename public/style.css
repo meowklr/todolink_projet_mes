@@ -325,7 +325,7 @@ a:hover {
     border-radius: 4px;
 }
 
-/* Setup des éléments du Dashboard */
+/* Vue: Dashboard */
 .dashboard_content {
     justify-content: flex-start;
     align-items: stretch;
@@ -447,6 +447,163 @@ a:hover {
     background: #2d6f94;
 }
 
+/* Ajout de tâche */
+.task_add {
+    display: flex;
+    width: min(900px, 100%);
+    min-height: 520px;
+    padding: 26px;
+    border-radius: 28px;
+    background: #ffffff;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+    gap: 22px;
+}
+
+.task_add .colonne {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task_add .colonne label {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #23262d;
+}
+
+.task_add .colonne label.btn {
+    color: #ffffff;
+}
+
+.task_add input[type="text"],
+.task_add input[type="date"],
+.task_add textarea,
+.task_add input[type="file"] {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #b6b9c1;
+    border-radius: 12px;
+    padding: 10px 12px;
+    font-size: 1rem;
+    background: #fdfdfd;
+}
+
+.task_add textarea {
+    min-height: 190px;
+}
+
+.task_add .partie_gauche {
+    padding-left: 6px;
+}
+
+.task_add .barre {
+    width: 1px;
+    background-color: #2d2d2d;
+    align-self: stretch;
+}
+
+.task_add .partie_droite {
+    padding-right: 6px;
+}
+
+.task_add .file_input {
+    display: none;
+}
+
+.task_add .file_name_preview {
+    margin: 6px 0 0;
+    color: #4b5563;
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+
+.task_add .file_icon {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+.task_add .dropdown {
+    width: 100%;
+    position: relative;
+}
+
+.task_add .dropdown #dropdownBtn {
+    width: 100%;
+    display: flex;
+}
+
+.task_add .dropdown-list {
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+    background: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 20px;
+    overflow: hidden;
+    display: none;
+    max-height: 220px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.task_add .dropdown-list.active {
+    display: block;
+}
+
+.task_add .dropdown-item {
+    padding: 18px;
+    text-align: center;
+    font-size: 20px;
+    border-bottom: 1px solid #e5e5e5;
+    cursor: pointer;
+}
+
+.task_add .dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.task_add .dropdown-item:hover {
+    background: #f0f0f0;
+}
+
+.task_add .boxCollaborateur {
+    margin-top: 8px;
+    padding: 8px;
+    background: #f8f9fa;
+    border: 1px solid #d8dce3;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    min-height: 30px;
+}
+
+.task_add .selected-collab-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 4px 0;
+}
+
+.task_add .remove-collab {
+    border: none;
+    background: #d66363c1;
+    color: #ffffff;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.task_add .submitbtn {
+    width: 100%;
+    margin-top: auto;
+}
+
 /* Animations */
 @keyframes appLogoFloat {
     0%,
@@ -482,6 +639,18 @@ a:hover {
     .content {
         min-height: 0;
         padding: 16px;
+    }
+
+    .task_add {
+        flex-direction: column;
+        min-height: auto;
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .task_add .barre {
+        width: 100%;
+        height: 1px;
     }
 
     .dashboard_content .Task {

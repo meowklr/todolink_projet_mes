@@ -6,7 +6,6 @@
     <title>Ajout Tâche</title>
     <link rel="icon" href="{{ asset('images/favicon.ico') }}">
     <link rel="stylesheet" href="{{ asset('style.css') }}">
-    <link rel="stylesheet" href="{{ asset('task_add.css') }}">
 </head>
 <body>
 
@@ -80,7 +79,7 @@
                         <input id="piece_jointe" type="file" class="file_input">
                         <p id="fichier_selectionne" class="file_name_preview">Aucun fichier sélectionné</p>
                         <br><br><br><br><br><br>
-                        <input class = "btn submitbtn" type="submit" value="Ajouter la tache">
+                        <input class="btn btn--solid submitbtn" type="submit" value="Ajouter la tache">
                     </div>
                 </form>
             </section>
