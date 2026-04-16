@@ -7,6 +7,17 @@ const usernameInput = document.getElementById("username");
 const selectedCollaborateurs = [];
 
 // setup maj champ username
+if (usernameInput && usernameInput.value.trim() !== "") {
+  usernameInput.value
+    .split(",")
+    .map((name) => name.trim())
+    .filter((name) => name.length > 0)
+    .forEach((name) => {
+      if (!selectedCollaborateurs.includes(name)) {
+        selectedCollaborateurs.push(name);
+      }
+    });
+}
 function updateUsernameField() {
   const joined = selectedCollaborateurs.join(", ");
 
@@ -41,6 +52,8 @@ function renderSelectedCollaborateurs() {
 }
 
 // setup interactions dropdown
+updateUsernameField();
+renderSelectedCollaborateurs();
 dropdownBtn.addEventListener("click", () => {
   dropdownList.classList.toggle("active");
 });

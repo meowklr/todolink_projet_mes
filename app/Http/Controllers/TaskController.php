@@ -19,12 +19,16 @@ class TaskController extends Controller
     
     //enregistrement de la tâche
     public function store(Request $request)
-    {
+    { 
         $request->validate([
             'username' => 'required|string|max:255',
             'title' => 'required|string|max:255',
             'task_date' => 'required|date',
             'file' => 'nullable|file|max:10240',
+        ], [
+            'file.uploaded' => 'Le fichier n\'a pas pu etre televerse (limite serveur).',
+            'file.max' => 'Le fichier depasse 10 Mo.',
+            'file.file' => 'Le fichier fourni est invalide.',
         ]);
 
         $fileName = null;
