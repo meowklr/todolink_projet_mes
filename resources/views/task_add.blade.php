@@ -26,10 +26,20 @@
                     @endguest
 
                     @auth
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <button type="submit" class="btn btn--solid">Se deconnecter</button>
-                        </form>
+                        @php
+                            $fullName = trim((string) (auth()->user()->name ?? auth()->user()->email ?? 'Compte'));
+                            $firstName = explode(' ', $fullName)[0] ?? 'Compte';
+                        @endphp
+                        <div class="account_menu" data-account-menu>
+                            <button type="button" class="btn btn--solid account_trigger" data-account-trigger aria-expanded="false">{{ $firstName }}</button>
+                            <div class="account_popup" data-account-popup>
+                                <a href="{{ route('profile.edit') }}" class="btn btn--solid account_action">Voir mon compte</a>
+                                <form method="POST" action="{{ route('logout') }}" class="account_form">
+                                    @csrf
+                                    <button type="submit" class="btn btn--solid account_action account_action--button">Se deconnecter</button>
+                                </form>
+                            </div>
+                        </div>
                     @endauth
                 </div>
             </div>
@@ -76,5 +86,6 @@
         </section>
     </section> 
     <script src="{{ asset('task_add.js') }}"></script>
+    <script src="{{ asset('account_menu.js') }}"></script>
 </body>
 </html>
