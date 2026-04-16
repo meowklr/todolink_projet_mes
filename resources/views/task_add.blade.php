@@ -42,7 +42,7 @@
                 </div>
             </div>
             <section class="content">
-                <form class="task_add" method="POST" action="{{ route('tasks.store') }}">
+                <form class="task_add" method="POST" action="{{ route('tasks.store') }}" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="username" id="username">
                     <div class="partie_gauche colonne">
@@ -76,7 +76,7 @@
                         
                         
                         <label for="piece_jointe" class="btn">Choisir un fichier</label>
-                        <input id="piece_jointe" type="file" class="file_input">
+                        <input id="piece_jointe" name="file" type="file" class="file_input">
                         <p id="fichier_selectionne" class="file_name_preview">Aucun fichier sélectionné</p>
                         <br><br><br><br><br><br>
                         <input class="btn btn--solid submitbtn" type="submit" value="Ajouter la tache">

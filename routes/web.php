@@ -11,6 +11,8 @@ Route::view('/task-add', 'task_add')->name('task_add');
 
 Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
 Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
+// route de telechargement du fichier lie a une tache
+Route::get('/tasks/{task}/download', [TaskController::class, 'download'])->name('tasks.download');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

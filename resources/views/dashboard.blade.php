@@ -53,11 +53,33 @@
                         <div class="Task">
                             <div class="colonne-gauche">
                                 <h3>{{ $task->title }}</h3>
-                                <p>Description: {{ $task->description ?: 'Aucune description' }}</p>
+                                <p>{{ $task->description ?: 'Aucune description' }}</p>
                                 <p>Date: {{ \Carbon\Carbon::parse($task->task_date)->format('d/m/Y') }}</p>
                             </div>
                             <div class="colonne-droite">
                                 <p>Collaborateur(s): {{ $task->username }}</p>
+                                @php
+                                    // on detecte si le fichier peut etre telecharge
+                                    $hasDownloadableFile = !empty($task->file) && str_starts_with($task->file, 'tasks/');
+                                    $displayFile = 'Aucun fichier';
+
+                                    if (!empty($task->file)) {
+                                        // affichage
+                                        $rawFileName = $hasDownloadableFile ? basename($task->file) : $task->file;
+                                        $extension = pathinfo($rawFileName, PATHINFO_EXTENSION);
+                                        $baseName = pathinfo($rawFileName, PATHINFO_FILENAME);
+                                        $baseName = preg_replace('/^\d+_/', '', $baseName) ?? $baseName;
+                                        $shortBaseName = \Illuminate\Support\Str::limit($baseName, 16, '...');
+                                        $displayFile = $extension ? $shortBaseName.'.'.$extension : $shortBaseName;
+                                    }
+                                @endphp
+                                @if ($hasDownloadableFile)
+                                    {{-- lien de telechargement --}}
+                                    <p>Fichier: <a href="{{ route('tasks.download', $task) }}">{{ $displayFile }}</a></p>
+                                @else
+                                    {{-- aucun fichier associe --}}
+                                    <p>Fichier: {{ $displayFile }}</p>
+                                @endif
                             </div>
                             <input type="checkbox" id="task{{ $task->id }}">
                             <label for="task{{ $task->id }}">Fait</label>
