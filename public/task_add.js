@@ -1,5 +1,3 @@
-
-
 // Bouton selectioner un collaborateur avec la bare deroulante
 const dropdownBtn = document.getElementById("dropdownBtn");
 const dropdownList = document.getElementById("dropdownList");
