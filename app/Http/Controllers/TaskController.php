@@ -11,7 +11,7 @@ class TaskController extends Controller
     //formulaire d'ajout de tâche
     public function create()
     {
-    $collaborateurs = User::orderBy('name')->get(['name']);
+    $collaborateurs = User::orderBy('name')->get(['name', 'branche']);
     return view('task_add', compact('collaborateurs'));
     }
     
