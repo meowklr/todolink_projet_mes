@@ -44,16 +44,28 @@
             <section class="content">
                 <form class="task_add" method="POST" action="{{ route('tasks.store') }}" enctype="multipart/form-data">
                     @csrf
-                    <input type="hidden" name="username" id="username">
+                    <input type="hidden" name="username" id="username" value="{{ old('username') }}">
+
+                    @if ($errors->any())
+                        <div class="form_errors" style="margin-bottom:12px; color:#b00020; font-weight:600;">
+                            <p style="margin:0 0 6px 0;">Le formulaire contient des erreurs :</p>
+                            <ul style="margin:0; padding-left:20px;">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <div class="partie_gauche colonne">
                         <label for="nom_tache">Nom de la tache</label>
-                        <input id="nom_tache" name="title" type="text" placeholder="Nom de la tache">
+                        <input id="nom_tache" name="title" type="text" placeholder="Nom de la tache" value="{{ old('title') }}">
 
                         <label for="descriptif">Description</label>
-                        <textarea id="descriptif" name="description" placeholder="Decris la tache..."></textarea>
+                        <textarea id="descriptif" name="description" placeholder="Decris la tache...">{{ old('description') }}</textarea>
 
                         <label for="date_limite">Date limite</label>
-                        <input id="date_limite" name="task_date" type="date">
+                        <input id="date_limite" name="task_date" type="date" value="{{ old('task_date') }}">
                     </div>
 
                     <div class="barre"></div>
