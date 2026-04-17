@@ -91,7 +91,6 @@
                         <label for="piece_jointe" class="btn">Choisir un fichier</label>
                         <input id="piece_jointe" name="file" type="file" class="file_input">
                         <p id="fichier_selectionne" class="file_name_preview">Aucun fichier sélectionné</p>
-                        <br><br><br><br><br><br>
                         <input class="btn btn--solid submitbtn" type="submit" value="Ajouter la tache">
                     </div>
                 </form>
