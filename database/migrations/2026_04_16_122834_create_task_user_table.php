@@ -7,10 +7,11 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+        * Execute les migrations.
      */
     public function up(): void
     {
+        // table pivot pour lier taches et utilisateurs
         Schema::create('task_user', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
@@ -18,7 +19,7 @@ return new class extends Migration
     }
 
     /**
-     * Reverse the migrations.
+        * Annule les migrations.
      */
     public function down(): void
     {

@@ -1,7 +1,7 @@
-// setup bootstrap
+// initialisation bootstrap
 import './bootstrap';
 
-// setup alpinejs
+// initialisation alpinejs
 import Alpine from 'alpinejs';
 
 window.Alpine = Alpine;

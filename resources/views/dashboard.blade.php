@@ -68,7 +68,7 @@
                                     $displayFile = 'Aucun fichier';
 
                                     if (!empty($task->file)) {
-                                        // affichage
+                                        // affichage: on tronque et nettoie le nom pour rester lisible
                                         $rawFileName = $hasDownloadableFile ? basename($task->file) : $task->file;
                                         $extension = pathinfo($rawFileName, PATHINFO_EXTENSION);
                                         $baseName = pathinfo($rawFileName, PATHINFO_FILENAME);

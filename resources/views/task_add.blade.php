@@ -48,6 +48,7 @@
             <section class="content">
                 <form class="task_add" method="POST" action="{{ route('tasks.store') }}" enctype="multipart/form-data">
                     @csrf
+                    {{-- rempli par le script JS quand on choisit un collaborateur --}}
                     <input type="hidden" name="username" id="username" value="{{ old('username') }}">
 
                     @if ($errors->any())

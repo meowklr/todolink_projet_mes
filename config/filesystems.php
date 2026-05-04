@@ -4,12 +4,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Filesystem Disk
+    | Disque par defaut
     |--------------------------------------------------------------------------
     |
-    | Here you may specify the default filesystem disk that should be used
-    | by the framework. The "local" disk, as well as a variety of cloud
-    | based disks are available to your application for file storage.
+    | Vous pouvez definir le disque par defaut. Le disque "local" et
+    | plusieurs disques cloud sont disponibles pour le stockage.
     |
     */
 
@@ -17,14 +16,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Filesystem Disks
+    | Disques de stockage
     |--------------------------------------------------------------------------
     |
-    | Below you may configure as many filesystem disks as necessary, and you
-    | may even configure multiple disks for the same driver. Examples for
-    | most supported storage drivers are configured here for reference.
+    | Vous pouvez configurer autant de disques que necessaire, y compris
+    | plusieurs disques pour un meme driver. Exemples fournis ci-dessous.
     |
-    | Supported drivers: "local", "ftp", "sftp", "s3"
+    | Drivers supportes : "local", "ftp", "sftp", "s3"
     |
     */
 
@@ -64,12 +62,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Symbolic Links
+    | Liens symboliques
     |--------------------------------------------------------------------------
     |
-    | Here you may configure the symbolic links that will be created when the
-    | `storage:link` Artisan command is executed. The array keys should be
-    | the locations of the links and the values should be their targets.
+    | Vous pouvez configurer les liens symboliques crees par `storage:link`.
+    | Les cles sont les emplacements des liens, les valeurs leurs cibles.
     |
     */
 

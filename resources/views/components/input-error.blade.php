@@ -1,5 +1,6 @@
 @props(['messages'])
 
+{{-- erreurs de validation du champ --}}
 @if ($messages)
     <ul {{ $attributes->merge(['class' => 'auth_error']) }}>
         @foreach ((array) $messages as $message)

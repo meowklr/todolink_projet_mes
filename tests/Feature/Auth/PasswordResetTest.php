@@ -5,12 +5,14 @@ use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Notification;
 
 test('reset password link screen can be rendered', function () {
+    // page demande de lien accessible
     $response = $this->get('/forgot-password');
 
     $response->assertStatus(200);
 });
 
 test('reset password link can be requested', function () {
+    // notification email simulee
     Notification::fake();
 
     $user = User::factory()->create();
@@ -21,6 +23,7 @@ test('reset password link can be requested', function () {
 });
 
 test('reset password screen can be rendered', function () {
+    // genere un lien et verifie l'ecran
     Notification::fake();
 
     $user = User::factory()->create();
@@ -37,6 +40,7 @@ test('reset password screen can be rendered', function () {
 });
 
 test('password can be reset with valid token', function () {
+    // reset complet avec jeton valide
     Notification::fake();
 
     $user = User::factory()->create();

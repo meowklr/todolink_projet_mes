@@ -9,6 +9,7 @@
         </div>
     @endif
 
+    <!-- actions possibles: renvoi email ou deconnexion -->
     <div class="auth_actions">
         <form method="POST" action="{{ route('verification.send') }}">
             @csrf

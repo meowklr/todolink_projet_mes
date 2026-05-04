@@ -6,12 +6,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Cache Store
+    | Stockage de cache par defaut
     |--------------------------------------------------------------------------
     |
-    | This option controls the default cache store that will be used by the
-    | framework. This connection is utilized if another isn't explicitly
-    | specified when running a cache operation inside the application.
+    | Cette option definit le stockage de cache par defaut utilise par
+    | le framework si aucun autre n'est specifie.
     |
     */
 
@@ -19,14 +18,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Cache Stores
+    | Stockages de cache
     |--------------------------------------------------------------------------
     |
-    | Here you may define all of the cache "stores" for your application as
-    | well as their drivers. You may even define multiple stores for the
-    | same cache driver to group types of items stored in your caches.
+    | Vous pouvez definir tous les "stores" de cache et leurs drivers.
+    | Il est possible d'avoir plusieurs stores pour un meme driver.
     |
-    | Supported drivers: "array", "database", "file", "memcached",
+    | Drivers supportes : "array", "database", "file", "memcached",
     |                    "redis", "dynamodb", "octane",
     |                    "failover", "null"
     |
@@ -103,12 +101,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Cache Key Prefix
+    | Prefixe des cles de cache
     |--------------------------------------------------------------------------
     |
-    | When utilizing the APC, database, memcached, Redis, and DynamoDB cache
-    | stores, there might be other applications using the same cache. For
-    | that reason, you may prefix every cache key to avoid collisions.
+    | Avec APC, database, memcached, Redis ou DynamoDB, d'autres applis peuvent
+    | partager le cache. Un prefixe evite les collisions.
     |
     */
 
@@ -116,12 +113,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Serializable Classes
+    | Classes serialisables
     |--------------------------------------------------------------------------
     |
-    | This value determines the classes that can be unserialized from cache
-    | storage. By default, no PHP classes will be unserialized from your
-    | cache to prevent gadget chain attacks if your APP_KEY is leaked.
+    | Cette valeur determine les classes autorisees en unserialisation.
+    | Par defaut, aucune classe PHP n'est unserialisee pour limiter les risques.
     |
     */
 

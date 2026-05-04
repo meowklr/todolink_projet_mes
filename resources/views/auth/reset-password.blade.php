@@ -2,7 +2,7 @@
     <form method="POST" action="{{ route('password.store') }}">
         @csrf
 
-        <!-- jeton de reinitialisation -->
+        <!-- jeton de reinitialisation recu par email -->
         <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
         <!-- adresse email -->
@@ -30,6 +30,7 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+        <!-- action principale -->
         <div class="auth_actions">
             <x-primary-button>
                 {{ __('Reinitialiser le mot de passe') }}

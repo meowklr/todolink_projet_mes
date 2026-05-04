@@ -3,6 +3,7 @@
 use App\Models\User;
 
 test('profile page is displayed', function () {
+    // utilisateur connecte requis pour le profil
     $user = User::factory()->create();
 
     $response = $this
@@ -13,6 +14,7 @@ test('profile page is displayed', function () {
 });
 
 test('profile information can be updated', function () {
+    // prepare un utilisateur de test
     $user = User::factory()->create();
 
     $response = $this
@@ -26,6 +28,7 @@ test('profile information can be updated', function () {
         ->assertSessionHasNoErrors()
         ->assertRedirect('/profile');
 
+    // rafraichit le modele pour verifier la persistence
     $user->refresh();
 
     $this->assertSame('Test User', $user->name);
@@ -34,6 +37,7 @@ test('profile information can be updated', function () {
 });
 
 test('email verification status is unchanged when the email address is unchanged', function () {
+    // l'email reste verifie si on ne change pas l'adresse
     $user = User::factory()->create();
 
     $response = $this
@@ -51,6 +55,7 @@ test('email verification status is unchanged when the email address is unchanged
 });
 
 test('user can delete their account', function () {
+    // suppression avec mot de passe valide
     $user = User::factory()->create();
 
     $response = $this
@@ -68,6 +73,7 @@ test('user can delete their account', function () {
 });
 
 test('correct password must be provided to delete account', function () {
+    // suppression refusee si mot de passe incorrect
     $user = User::factory()->create();
 
     $response = $this

@@ -5,6 +5,7 @@
 ])
 
 @php
+// largeur max configuree par le composant
 $maxWidth = [
     'sm' => 'sm:max-w-sm',
     'md' => 'sm:max-w-md',
@@ -14,6 +15,7 @@ $maxWidth = [
 ][$maxWidth];
 @endphp
 
+<!-- modal Alpine avec focus trap et fermeture echap -->
 <div
     x-data="{
         show: @js($show),

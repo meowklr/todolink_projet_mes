@@ -16,7 +16,7 @@ use Illuminate\View\View;
 class RegisteredUserController extends Controller
 {
     /**
-     * Display the registration view.
+        * Affiche la page d'inscription.
      */
     public function create(): View
     {
@@ -24,7 +24,7 @@ class RegisteredUserController extends Controller
     }
 
     /**
-     * Handle an incoming registration request.
+        * Traite une demande d'inscription.
      *
      * @throws ValidationException
      */
@@ -34,6 +34,7 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            // champ metier additionnel
             'branche' => ['required', 'string', 'max:255'],
         ]);
 
@@ -44,8 +45,10 @@ class RegisteredUserController extends Controller
             'branche' => $request->branche,
         ]);
 
+        // declenche l'evenement d'inscription
         event(new Registered($user));
 
+        // connecte automatiquement le nouvel utilisateur
         Auth::login($user);
 
         return redirect(route('dashboard', absolute: false));

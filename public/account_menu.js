@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
+    // ferme tous les menus et remet l'accessibilite a jour
     var closeAllMenus = function () {
         menus.forEach(function (menu) {
             var trigger = menu.querySelector('[data-account-trigger]');
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
+        // toggle du menu du compte
         trigger.addEventListener('click', function (event) {
             event.preventDefault();
             var wasOpen = menu.classList.contains('is-open');
@@ -35,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // clic hors menu: fermeture
     document.addEventListener('click', function (event) {
         var clickedInsideMenu = false;
 
@@ -49,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // echap: fermeture rapide
     document.addEventListener('keydown', function (event) {
         if (event.key === 'Escape') {
             closeAllMenus();

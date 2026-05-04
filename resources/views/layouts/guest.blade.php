@@ -19,6 +19,7 @@
     </head>
     <body>
         @php
+            // adapte les titres en fonction de la page auth courante
             $authTitle = match (true) {
                 request()->routeIs('login') => 'Heureux de vous revoir',
                 request()->routeIs('register') => 'Créez votre compte',
@@ -84,12 +85,14 @@
 
                 {{-- setup contenu auth --}}
                 <section class="content auth_content">
+                    {{-- entete de la page auth --}}
                     <div class="auth_header">
                         <p class="auth_breadcrumb"><a href="{{ route('home') }}">Accueil</a> / {{ $authCrumb }}</p>
                         <h1>{{ $authTitle }}</h1>
                         <p>{{ $authSubtitle }}</p>
                     </div>
 
+                    {{-- carte qui contient le formulaire --}}
                     <div class="auth_card">
                         {{ $slot }}
                     </div>

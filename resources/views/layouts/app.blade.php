@@ -17,12 +17,12 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        {{-- setup page principale --}}
+        {{-- structure principale de la page --}}
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            {{-- setup navbar --}}
+            {{-- navigation principale --}}
             @include('layouts.navigation')
 
-            {{-- setup header --}}
+            {{-- header optionnel --}}
             @isset($header)
                 <header class="bg-white dark:bg-gray-800 shadow">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -31,7 +31,7 @@
                 </header>
             @endisset
 
-            {{-- setup contenu page --}}
+            {{-- contenu principal --}}
             <main>
                 {{ $slot }}
             </main>

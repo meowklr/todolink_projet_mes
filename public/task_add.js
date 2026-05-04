@@ -6,7 +6,7 @@ const boxCollaborateur = document.querySelector(".boxCollaborateur");
 const usernameInput = document.getElementById("username");
 const selectedCollaborateurs = [];
 
-// setup maj champ username
+// hydrate la selection depuis la valeur existante (cas validation retour)
 if (usernameInput && usernameInput.value.trim() !== "") {
   usernameInput.value
     .split(",")
@@ -18,21 +18,23 @@ if (usernameInput && usernameInput.value.trim() !== "") {
       }
     });
 }
+
+// synchronise le champ cache et le label du bouton
 function updateUsernameField() {
   const joined = selectedCollaborateurs.join(", ");
 
   if (usernameInput) {
-  usernameInput.value = joined;
+    usernameInput.value = joined;
   }
 
   if (dropdownBtn) {
-  dropdownBtn.textContent = selectedCollaborateurs.length
-  ? "Collaborateurs (" + selectedCollaborateurs.length + ")"
-  : "S\u00e9lectionner un collaborateur";
+    dropdownBtn.textContent = selectedCollaborateurs.length
+      ? "Collaborateurs (" + selectedCollaborateurs.length + ")"
+      : "S\u00e9lectionner un collaborateur";
   }
 }
 
-// setup affichage collaborateurs selectionnes
+// affiche la liste des collaborateurs selectionnes
 function renderSelectedCollaborateurs() {
   if (!boxCollaborateur) return;
 
@@ -51,7 +53,7 @@ function renderSelectedCollaborateurs() {
     .join("");
 }
 
-// setup interactions dropdown
+// interactions dropdown
 updateUsernameField();
 renderSelectedCollaborateurs();
 dropdownBtn.addEventListener("click", () => {
@@ -74,7 +76,7 @@ items.forEach(item => {
   });
 });
 
-// setup suppression collaborateurs
+// suppression d'un collaborateur selectionne
 if (boxCollaborateur) {
   boxCollaborateur.addEventListener("click", (event) => {
     const removeButton = event.target.closest(".remove-collab");
@@ -90,7 +92,7 @@ if (boxCollaborateur) {
   });
 }
 
-// setup fichier piece jointe
+// preview du fichier joint
 const inputFichier = document.getElementById('piece_jointe');
 const previewFichier = document.getElementById('fichier_selectionne');
 

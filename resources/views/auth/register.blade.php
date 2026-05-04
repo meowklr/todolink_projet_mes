@@ -16,6 +16,7 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        <!-- champ metier additionnel -->
         <div class="mt-4">
             <x-input-label for="branche" :value="__('Branche')" />
             <x-text-input id="branche" class="block mt-1 w-full" type="text" name="branche" required />
@@ -45,6 +46,7 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+        <!-- actions principales -->
         <div class="auth_actions">
             <a class="auth_link" href="{{ route('login') }}">
                 {{ __('Déjà un compte ?') }}

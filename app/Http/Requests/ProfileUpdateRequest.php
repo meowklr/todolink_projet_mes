@@ -10,7 +10,7 @@ use Illuminate\Validation\Rule;
 class ProfileUpdateRequest extends FormRequest
 {
     /**
-     * Get the validation rules that apply to the request.
+        * Recupere les regles de validation de la requete.
      *
      * @return array<string, ValidationRule|array<mixed>|string>
      */
@@ -24,6 +24,7 @@ class ProfileUpdateRequest extends FormRequest
                 'lowercase',
                 'email',
                 'max:255',
+                // garde l'email actuel autorise pour l'utilisateur en cours
                 Rule::unique(User::class)->ignore($this->user()->id),
             ],
         ];

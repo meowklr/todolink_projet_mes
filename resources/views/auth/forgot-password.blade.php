@@ -3,7 +3,7 @@
         {{ __('Mot de passe oublie ? Aucun souci. Indiquez votre adresse email et nous vous enverrons un lien pour reinitialiser votre mot de passe.') }}
     </div>
 
-    <!-- Session Status -->
+    <!-- statut de session -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form method="POST" action="{{ route('password.email') }}">
@@ -16,6 +16,7 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        <!-- action principale -->
         <div class="auth_actions">
             <x-primary-button>
                 {{ __('Envoyer le lien de reinitialisation') }}

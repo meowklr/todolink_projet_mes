@@ -10,16 +10,17 @@ use App\Models\User;
 
 class TaskController extends Controller
 {
-    //formulaire d'ajout de tâche
+    // formulaire de creation de tache
     public function create()
     {
     $collaborateurs = User::orderBy('name')->get(['name', 'branche']);
     return view('task_add', compact('collaborateurs'));
     }
     
-    //enregistrement de la tâche
+    // enregistrement de la tache
     public function store(Request $request)
     { 
+        // validation cote serveur pour eviter les champs vides et fichiers trop lourds
         $request->validate([
             'username' => 'required|string|max:255',
             'title' => 'required|string|max:255',
@@ -43,12 +44,13 @@ class TaskController extends Controller
                 $safeBaseName = 'fichier';
             }
 
+            // horodatage pour eviter les collisions de noms
             $storedName = now()->timestamp.'_'.$safeBaseName;
             if ($extension !== '') {
                 $storedName .= '.'.$extension;
             }
 
-            // la base enregistre le chemin du fichier
+            // la base enregistre le chemin du fichier pour le telechargement
             $fileName = $request->file('file')->storeAs('tasks', $storedName);
         }
         
@@ -65,7 +67,7 @@ class TaskController extends Controller
 
     public function download(Task $task)
     {
-        // si le fichier est absent pas de download
+        // pas de telechargement si le fichier est absent
         if (empty($task->file) || !Storage::disk('local')->exists($task->file)) {
             return redirect()->route('dashboard')->with('success', 'Fichier introuvable pour cette tache.');
         }
@@ -75,7 +77,7 @@ class TaskController extends Controller
         return response()->download(Storage::disk('local')->path($task->file), $downloadName);
     }
 
-    //dashboard
+    // liste pour le dashboard
     public function index()
     {
         $tasks = Task::orderBy('task_date', 'asc')->get();

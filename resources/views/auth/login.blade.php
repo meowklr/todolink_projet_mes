@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <!-- Session Status -->
+    <!-- statut de session -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form method="POST" action="{{ route('login') }}">
@@ -32,6 +32,7 @@
             </label>
         </div>
 
+        <!-- actions principales -->
         <div class="auth_actions">
             @if (Route::has('password.request'))
                 <a class="auth_link" href="{{ route('password.request') }}">

@@ -1,6 +1,7 @@
 @props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white dark:bg-gray-700'])
 
 @php
+// classes calculees pour l'alignement et la largeur
 $alignmentClasses = match ($align) {
     'left' => 'ltr:origin-top-left rtl:origin-top-right start-0',
     'top' => 'origin-top',
@@ -13,6 +14,7 @@ $width = match ($width) {
 };
 @endphp
 
+<!-- dropdown pilote par Alpine -->
 <div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
     <div @click="open = ! open">
         {{ $trigger }}

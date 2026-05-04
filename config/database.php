@@ -7,13 +7,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Database Connection Name
+    | Connexion base de donnees par defaut
     |--------------------------------------------------------------------------
     |
-    | Here you may specify which of the database connections below you wish
-    | to use as your default connection for database operations. This is
-    | the connection which will be utilized unless another connection
-    | is explicitly specified when you execute a query / statement.
+    | Vous pouvez definir la connexion par defaut pour les operations.
+    | Elle est utilisee si aucune autre n'est precisee.
     |
     */
 
@@ -21,12 +19,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Database Connections
+    | Connexions base de donnees
     |--------------------------------------------------------------------------
     |
-    | Below are all of the database connections defined for your application.
-    | An example configuration is provided for each database system which
-    | is supported by Laravel. You're free to add / remove connections.
+    | Toutes les connexions possibles sont definies ici, avec des exemples
+    | pour les bases supportees. Vous pouvez ajouter ou retirer des connexions.
     |
     */
 
@@ -118,12 +115,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Migration Repository Table
+    | Table de suivi des migrations
     |--------------------------------------------------------------------------
     |
-    | This table keeps track of all the migrations that have already run for
-    | your application. Using this information, we can determine which of
-    | the migrations on disk haven't actually been run on the database.
+    | Cette table suit les migrations deja executees afin de savoir
+    | lesquelles restent a appliquer.
     |
     */
 
@@ -134,12 +130,11 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Redis Databases
+    | Bases Redis
     |--------------------------------------------------------------------------
     |
-    | Redis is an open source, fast, and advanced key-value store that also
-    | provides a richer body of commands than a typical key-value system
-    | such as Memcached. You may define your connection settings here.
+    | Redis est un store cle-valeur rapide et avance, avec plus de commandes
+    | que Memcached. Vous pouvez definir vos parametres ici.
     |
     */
 
