@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Models\Task;
 use App\Models\User;
+use App\Services\CalendarService;
 
 class TaskController extends Controller
 {
@@ -54,13 +55,17 @@ class TaskController extends Controller
             $fileName = $request->file('file')->storeAs('tasks', $storedName);
         }
         
-        Task::create([
+        $task = Task::create([
             'username' => $request->username,
             'title' => $request->title,
             'description' => $request->description,
             'task_date' => $request->task_date,
             'file' => $fileName,
         ]);
+
+        // Créer un événement calendrier
+        $calendarService = new CalendarService();
+        $calendarService->createCalendarEvent($task);
 
         return redirect()->route('dashboard')->with('success', 'Tache ajoutée.');
     }
