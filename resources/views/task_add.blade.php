@@ -50,7 +50,6 @@
                     @csrf
                     {{-- rempli par le script JS quand on choisit un collaborateur --}}
                     <input type="hidden" name="username" id="username" value="{{ old('username') }}">
-
                     @if ($errors->any())
                         <div class="form_errors" style="margin-bottom:12px; color:#b00020; font-weight:600;">
                             <p style="margin:0 0 6px 0;">Le formulaire contient des erreurs :</p>
@@ -81,13 +80,24 @@
                             <button type="button" class="dropdownBtn btn" id="dropdownBtn">Sélectionner un collaborateur</button>
                             <ul class="dropdown-list" id ="dropdownList">
                                 @foreach ($collaborateurs as $collaborateur)
-                                    <li class="dropdown-item" data-name="{{ $collaborateur->name }}"> {{ $collaborateur->name }} - {{ $collaborateur->branche}} </li>
+                                    <li class="dropdown-item collab-item" data-name="{{ $collaborateur->name }}"> {{ $collaborateur->name }} - {{ $collaborateur->branche}} </li>
                                 @endforeach
                             </ul>
                         </div>
                         
                         <div class="boxCollaborateur"></div>
-                        
+
+                        <label for="priorite">Priorité</label>
+                        <select id="priorite" name="priority">
+                            <option value="" disabled {{ old('priority') ? '' : 'selected' }}>Sélectionner une priorité</option>
+                            @foreach ($priorites as $priorite)
+                                <option value="{{ $priorite->name }}" {{ old('priority') === $priorite->name ? 'selected' : '' }}>
+                                    {{ $priorite->name }}
+                                </option>
+                            @endforeach
+                        </select>
+
+                
                         
                         <label for="piece_jointe" class="btn">Choisir un fichier</label>
                         <input id="piece_jointe" name="file" type="file" class="file_input">

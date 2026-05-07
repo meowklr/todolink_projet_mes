@@ -540,6 +540,7 @@ a:hover {
 /* Champs de saisie principaux (titre, date, description, fichier) */
 .task_add input[type="text"],
 .task_add input[type="date"],
+.task_add select,
 .task_add textarea,
 .task_add input[type="file"] {
     width: 100%;

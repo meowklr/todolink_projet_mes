@@ -12,5 +12,6 @@ class Task extends Model
         'description',
         'task_date',
         'file',
+        'priority',
     ];
 }

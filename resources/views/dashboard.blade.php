@@ -84,6 +84,7 @@
                                     {{-- aucun fichier associe --}}
                                     <p>Fichier: {{ $displayFile }}</p>
                                 @endif
+                                <p>Priorité: {{ $task->priority ?? 'Aucune'}}</p>
                             </div>
                             <input type="checkbox" id="task{{ $task->id }}">
                             <label for="task{{ $task->id }}">Fait</label>

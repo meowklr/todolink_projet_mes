@@ -1,7 +1,7 @@
 // setup dropdown collaborateurs
 const dropdownBtn = document.getElementById("dropdownBtn");
 const dropdownList = document.getElementById("dropdownList");
-const items = document.querySelectorAll(".dropdown-item");
+const collabItems = document.querySelectorAll(".collab-item");
 const boxCollaborateur = document.querySelector(".boxCollaborateur");
 const usernameInput = document.getElementById("username");
 const selectedCollaborateurs = [];
@@ -56,25 +56,27 @@ function renderSelectedCollaborateurs() {
 // interactions dropdown
 updateUsernameField();
 renderSelectedCollaborateurs();
-dropdownBtn.addEventListener("click", () => {
-  dropdownList.classList.toggle("active");
-});
-
-items.forEach(item => {
-  item.addEventListener("click", () => {
-    const name = (item.getAttribute("data-name") || item.textContent).trim();
-
-    if (!selectedCollaborateurs.includes(name)) {
-      selectedCollaborateurs.push(name);
-    }
-
-    updateUsernameField();
-
-    renderSelectedCollaborateurs();
-
-    dropdownList.classList.remove("active");
+if (dropdownBtn) {
+  dropdownBtn.addEventListener("click", () => {
+    dropdownList.classList.toggle("active");
   });
-});
+
+  collabItems.forEach(item => {
+    item.addEventListener("click", () => {
+      const name = (item.getAttribute("data-name") || item.textContent).trim();
+
+      if (!selectedCollaborateurs.includes(name)) {
+        selectedCollaborateurs.push(name);
+      }
+
+      updateUsernameField();
+
+      renderSelectedCollaborateurs();
+
+      dropdownList.classList.remove("active");
+    });
+  });
+}
 
 // suppression d'un collaborateur selectionne
 if (boxCollaborateur) {

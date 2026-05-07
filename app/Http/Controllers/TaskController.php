@@ -15,7 +15,14 @@ class TaskController extends Controller
     public function create()
     {
     $collaborateurs = User::orderBy('name')->get(['name', 'branche']);
-    return view('task_add', compact('collaborateurs'));
+    // liste simple de priorites pour le formulaire
+    $priorites = collect([
+        (object) ['name' => 'Haute'],
+        (object) ['name' => 'Moyenne'],
+        (object) ['name' => 'Basse'],
+    ]);
+
+    return view('task_add', compact('collaborateurs', 'priorites'));
     }
     
     // enregistrement de la tache
@@ -27,6 +34,7 @@ class TaskController extends Controller
             'title' => 'required|string|max:255',
             'task_date' => 'required|date',
             'file' => 'nullable|file|max:10240',
+            'priority' => 'required|in:Haute,Moyenne,Basse'
         ], [
             'file.uploaded' => 'Le fichier n\'a pas pu etre televerse (limite serveur).',
             'file.max' => 'Le fichier depasse 10 Mo.',
@@ -61,6 +69,7 @@ class TaskController extends Controller
             'description' => $request->description,
             'task_date' => $request->task_date,
             'file' => $fileName,
+            'priority' => $request->input('priority'),
         ]);
 
         // Créer un événement calendrier
